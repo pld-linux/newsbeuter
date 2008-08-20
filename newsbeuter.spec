@@ -1,18 +1,18 @@
 Summary:	Newsbeuter is an RSS feed reader for the text console.
 Name:		newsbeuter
-Version:	0.9.1
+Version:	1.0
 Release:	0.1
 License:	GPL v2
 Group:		Applications/Networking
-Source0:	http://synflood.at/newsbeuter/%{name}-%{version}.tar.gz
-# Source0-md5:	58f688dd305ed46d3a837897ff04c049
-URL:		http://synflood.at/newsbeuter.html
+Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
+# Source0-md5:	3521c20b3540b62c414d9e10b48c95ed
+URL:		http://www.newsbeuter.org
 BuildRequires:	sqlite3-devel
 BuildRequires:	libmrss-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gcc-c++
-BuildRequires:	stfl-devel
+BuildRequires:	stfl-devel >=0.19
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
