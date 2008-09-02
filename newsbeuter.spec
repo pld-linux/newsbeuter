@@ -1,13 +1,14 @@
 # TODO: optflags
 Summary:	Newsbeuter - an RSS feed reader for the text console
+Summary(hu.UTF-8):	Newsbeuter - egy RSS hírolvasó szöveges terminálra
 Summary(pl.UTF-8):	Newsbeuter - czytnik RSS dla terminala tekstowego
 Name:		newsbeuter
-Version:	1.1
+Version:	1.2
 Release:	0.1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	2e69195064a6283138918381905bc9a9
+# Source0-md5:	3280583b502aa3b77524ce88bcea430f
 URL:		http://www.newsbeuter.org/
 BuildRequires:	gettext-devel
 BuildRequires:	libmrss-devel
@@ -20,8 +21,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %{expand:%%define	_sysconfdir	%{_sysconfdir}/X11}
 
 %description
-Newsbeuter is an RSS feedreader. Newsbeuter is designed to be used 
-on text terminals on Unix or Unix-like systems.
+Newsbeuter is an RSS feedreader. Newsbeuter is designed to be used on
+text terminals on Unix or Unix-like systems.
+
+%description -l hu.UTF-8
+Newsbeuter egy RSS hírolvasó, amely szöveges terminálokon való
+használatra készült.
 
 %description -l pl.UTF-8
 Newsbeuter to czytnik RSS przeznaczony do używania na terminalach
@@ -33,21 +38,21 @@ tekstowych w systemach uniksowych.
 %build
 %{__make} \
 	prefix=%{_prefix} \
-	docdir=%{_defaultdocdir}/%{name}-%{version}
+	docdir=%{_docdir}/%{name}-%{version}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	docdir=$RPM_BUILD_ROOT%{_defaultdocdir}/%{name}-%{version}
+	docdir=$RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS LICENSE README 
+%doc AUTHORS LICENSE README
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/podbeuter
 %{_mandir}/man1/%{name}*
