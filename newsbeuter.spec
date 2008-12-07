@@ -4,7 +4,7 @@ Summary(hu.UTF-8):	Newsbeuter - egy RSS hírolvasó szöveges terminálra
 Summary(pl.UTF-8):	Newsbeuter - czytnik RSS dla terminala tekstowego
 Name:		newsbeuter
 Version:	1.3
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
