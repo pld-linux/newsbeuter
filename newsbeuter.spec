@@ -16,6 +16,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	sqlite3-devel
 BuildRequires:	stfl-devel >=0.19
+BuildRequires:  stfl-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %{expand:%%define	_sysconfdir	%{_sysconfdir}/X11}
