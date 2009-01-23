@@ -47,6 +47,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	prefix=$RPM_BUILD_ROOT%{_prefix} \
 	docdir=$RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/es{_ES,}
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/zh{,_CN}
+
 %find_lang %{name}
 
 %clean
