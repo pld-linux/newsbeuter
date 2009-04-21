@@ -9,6 +9,7 @@ Group:		Applications/Networking
 Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	3b506b0c87f6e306917b7732d56eecf1
 Source1:	http://www.newsbeuter.org/doc/%{name}.html
+# Source1-md5:	05b0c5eb606309c1cd66acd41ba01908
 URL:		http://www.newsbeuter.org/
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
