@@ -8,14 +8,16 @@ License:	MIT/X
 Group:		Applications/Networking
 Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	f732bb0302b44a3723dea81e81804fb9
+Patch0:		%{name}-compile-flags.patch
 URL:		http://www.newsbeuter.org/
+BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
-BuildRequires:	perl
+BuildRequires:	perl-base
+BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
-BuildRequires:	stfl-devel >=0.21
-BuildRequires:	stfl-static
+BuildRequires:	stfl-devel >= 0.21-4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,11 +34,13 @@ tekstowych w systemach uniksowych.
 
 %prep
 %setup -q
-%{__sed} -i "s@CXXFLAGS+=.*@CXXFLAGS+=%{rpmcxxflags}@" Makefile.prof
-%{__sed} -i "s@CFLAGS+=.*@CFLAGS+=%{rpmcflags}@" Makefile.prof
+%patch0 -p1
 
 %build
-%{__make} -f Makefile.prof \
+%{__make} \
+	CXX="%{__cxx}" \
+	OPTCXXFLAGS="%{rpmcxxflags}" \
+	REALLDFLAGS="%{rpmldflags}" \
 	prefix=%{_prefix} \
 	docdir=%{_docdir}/%{name}-%{version}
 
