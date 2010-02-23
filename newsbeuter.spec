@@ -18,6 +18,7 @@ BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel
 BuildRequires:	stfl-devel >= 0.21-4
+Suggests:	wwwbrowser
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
