@@ -2,13 +2,12 @@ Summary:	Newsbeuter - an RSS feed reader for the text console
 Summary(hu.UTF-8):	Newsbeuter - egy RSS hírolvasó szöveges terminálra
 Summary(pl.UTF-8):	Newsbeuter - czytnik RSS dla terminala tekstowego
 Name:		newsbeuter
-Version:	2.1
-Release:	2
+Version:	2.2
+Release:	1
 License:	MIT/X
 Group:		Applications/Networking
 Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	f732bb0302b44a3723dea81e81804fb9
-Patch0:		%{name}-compile-flags.patch
+# Source0-md5:	2add1dfe8d3684e67ab75f0c5172c705
 URL:		http://www.newsbeuter.org/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
@@ -35,15 +34,15 @@ tekstowych w systemach uniksowych.
 
 %prep
 %setup -q
-%patch0 -p1
+sed -i "1 s@\(.*\)@\1 %{rpmcxxflags}@" Makefile.prof
 
 %build
 %{__make} \
 	CXX="%{__cxx}" \
-	OPTCXXFLAGS="%{rpmcxxflags}" \
 	REALLDFLAGS="%{rpmldflags}" \
 	prefix=%{_prefix} \
-	docdir=%{_docdir}/%{name}-%{version}
+	docdir=%{_docdir}/%{name}-%{version} \
+	-f Makefile.prof
 
 %install
 rm -rf $RPM_BUILD_ROOT
