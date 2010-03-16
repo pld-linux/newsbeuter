@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Newsbeuter - egy RSS hírolvasó szöveges terminálra
 Summary(pl.UTF-8):	Newsbeuter - czytnik RSS dla terminala tekstowego
 Name:		newsbeuter
 Version:	2.2
-Release:	1
+Release:	2
 License:	MIT/X
 Group:		Applications/Networking
 Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
@@ -34,15 +34,13 @@ tekstowych w systemach uniksowych.
 
 %prep
 %setup -q
-sed -i "1 s@\(.*\)@\1 %{rpmcxxflags}@" Makefile.prof
 
 %build
-%{__make} \
+CXXFLAGS="%{rpmcxxflags}" %{__make} \
 	CXX="%{__cxx}" \
 	REALLDFLAGS="%{rpmldflags}" \
 	prefix=%{_prefix} \
-	docdir=%{_docdir}/%{name}-%{version} \
-	-f Makefile.prof
+	docdir=%{_docdir}/%{name}-%{version}
 
 %install
 rm -rf $RPM_BUILD_ROOT
