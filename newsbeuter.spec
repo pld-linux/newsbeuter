@@ -12,6 +12,7 @@ URL:		http://www.newsbeuter.org/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	libxml2-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
