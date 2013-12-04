@@ -3,7 +3,7 @@ Summary(hu.UTF-8):	Newsbeuter - egy RSS hírolvasó szöveges terminálra
 Summary(pl.UTF-8):	Newsbeuter - czytnik RSS dla terminala tekstowego
 Name:		newsbeuter
 Version:	2.7
-Release:	1
+Release:	2
 License:	MIT/X
 Group:		Applications/Networking
 Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
@@ -41,21 +41,17 @@ tekstowych w systemach uniksowych.
 CXXFLAGS="%{rpmcxxflags}" %{__make} \
 	CXX="%{__cxx}" \
 	REALLDFLAGS="%{rpmldflags}" \
-	prefix=%{_prefix} \
-	docdir=%{_docdir}/%{name}-%{version}
+	prefix=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	docdir=$RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+	prefix=$RPM_BUILD_ROOT%{_prefix}
 
-%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/es{_ES,}
 %{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/zh{,_CN}
-install AUTHORS README TODO $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
-install doc/*.txt $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
-install doc/xhtml/*.html $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/es_ES
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 %find_lang %{name}
 
@@ -64,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc %{_docdir}/%{name}-%{version}
+%doc AUTHORS README TODO doc/*.txt doc/xhtml/*.html doc/example-config
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/podbeuter
 %{_mandir}/man1/%{name}*
