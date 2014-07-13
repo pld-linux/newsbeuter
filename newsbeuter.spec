@@ -2,12 +2,12 @@ Summary:	Newsbeuter - an RSS feed reader for the text console
 Summary(hu.UTF-8):	Newsbeuter - egy RSS hírolvasó szöveges terminálra
 Summary(pl.UTF-8):	Newsbeuter - czytnik RSS dla terminala tekstowego
 Name:		newsbeuter
-Version:	2.7
-Release:	2
+Version:	2.8
+Release:	1
 License:	MIT/X
 Group:		Applications/Networking
 Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	cc8d43e8957875608d3b77679f437af6
+# Source0-md5:	5d8f1a5eed700beccfeb512ae003613d
 URL:		http://www.newsbeuter.org/
 BuildRequires:	curl-devel
 BuildRequires:	gettext-devel
