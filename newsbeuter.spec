@@ -10,7 +10,7 @@ Source0:	http://www.newsbeuter.org/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	5d8f1a5eed700beccfeb512ae003613d
 URL:		http://www.newsbeuter.org/
 BuildRequires:	curl-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	ncurses-devel
