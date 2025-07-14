@@ -39,7 +39,7 @@ tekstowych w systemach uniksowych.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %{__sed} -i "s@ncursesw5@ncursesw6@g" config.sh
 
